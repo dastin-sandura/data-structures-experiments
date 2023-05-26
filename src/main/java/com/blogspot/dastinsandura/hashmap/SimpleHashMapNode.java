@@ -6,5 +6,8 @@ public class SimpleHashMapNode<K, V> {
 
     V value;
 
-    SimpleHashMapNode<K, V> next;
+    public SimpleHashMapNode(K key, V value) {
+        this.key = key;
+        this.value = value;
+    }
 }
