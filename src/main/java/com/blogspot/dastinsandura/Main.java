@@ -2,6 +2,9 @@ package com.blogspot.dastinsandura;
 
 import com.blogspot.dastinsandura.hashmap.SimpleHashMap;
 
+import java.util.ArrayList;
+import java.util.Set;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
@@ -10,24 +13,45 @@ public class Main {
 
         populateHashMap(simpleHashMap);
 
-        for (String s : simpleHashMap.getKeySet()) {
-            System.out.println("[" + s + " = " + simpleHashMap.get(s) + "]");
-        }
-        System.out.println(simpleHashMap.get("1"));
-        System.out.println(simpleHashMap.get("2"));
-        System.out.println(simpleHashMap.get("3"));
+//        printMap(simpleHashMap);
 
-        System.out.println(simpleHashMap.get("4"));
+        Set<String> keySet = simpleHashMap.getKeySet();
+        ArrayList<String>a = new ArrayList<>(keySet);
+        System.err.println(a.get(0));
+        System.err.println(a.get(1));
+        System.err.println(a.get(2));
+//        System.out.println(simpleHashMap.get("1"));
+//        System.out.println(simpleHashMap.get("2"));
+//        System.out.println(simpleHashMap.get("3"));
+//
+//        System.out.println(simpleHashMap.get("4"));
 
     }
 
+    private static void printMap(SimpleHashMap<String, String> map) {
+        for (String s : map.getKeySet()) {
+            System.out.println("[" + s + " = " + map.get(s) + "]");
+        }
+    }
+
     private static void populateHashMap(SimpleHashMap<String, String> simpleHashMap) {
-        simpleHashMap.put("1", "One");
-        simpleHashMap.put("2", "Two");
-        simpleHashMap.put("3", "Three");
-        simpleHashMap.put("4", "Four");
-        simpleHashMap.put("5", "Five");
-        simpleHashMap.put("6", "Six");
-        simpleHashMap.put("1", "Uno"); // should support overwriting value
+        simpleHashMap.put("1", "16");
+        simpleHashMap.put("2", "15");
+        simpleHashMap.put("3", "14");
+        simpleHashMap.put("4", "13");
+        simpleHashMap.put("5", "12");
+        simpleHashMap.put("6", "11");
+        simpleHashMap.put("7", "10");
+        simpleHashMap.put("8", "9");
+        simpleHashMap.put("9", "8");
+        simpleHashMap.put("10", "7");
+        simpleHashMap.put("11", "6");
+        simpleHashMap.put("12", "5");
+        simpleHashMap.put("13", "4");
+        simpleHashMap.put("14", "3");
+        simpleHashMap.put("15", "2");
+        simpleHashMap.put("16", "1");
+
+//        simpleHashMap.put("1", "Uno"); // should support overwriting value
     }
 }
