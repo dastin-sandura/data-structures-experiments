@@ -23,6 +23,7 @@ public class SimpleHashMap<K, V> {
         this.size = size;
     }
 
+    //TODO implement cases when multiple values have the same hash
     public void put(K key, V value) {
         int index = hash(key);
         if (nodes[index] == null) {
@@ -50,6 +51,10 @@ public class SimpleHashMap<K, V> {
             keySet.add(n.key);
         }
         return keySet;
+    }
+    //TODO implement rehashing
+    private void rehashStructure() {
+
     }
 
 }
