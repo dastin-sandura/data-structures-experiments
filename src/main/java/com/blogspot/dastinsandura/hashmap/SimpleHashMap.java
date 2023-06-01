@@ -23,14 +23,17 @@ public class SimpleHashMap<K, V> {
         this.size = size;
     }
 
-    //TODO implement cases when multiple values have the same hash
+    //TODO test implementation of multiple value under one key stored as Linked List
     public void put(K key, V value) {
         int index = hash(key);
-        if (nodes[index] == null) {
-            nodes[index] = new SimpleHashMapNode<>(key, value);
+        SimpleHashMapNode<K, V> node = nodes[index];
+        SimpleHashMapNode<K, V> newNode = new SimpleHashMapNode<>(key, value);
+        if (node == null) {
+            nodes[index] = newNode;
             occupiedNodesCount++;
         } else {
             System.out.println("!!There is already a value for key " + key + " which corresponds to index " + index);
+            node.next = newNode;
         }
         float percentage = (float)occupiedNodesCount/size;
         System.out.println("Occupied " + occupiedNodesCount + " out of " + size + " which is " + percentage*100);
