@@ -7,6 +7,11 @@ public class SimpleHashMap<K, V> {
 
     private static final int DEFAULT_SIZE = 16;
 
+    private static final float THRESHOLD_COEFFICIENT = 0.5f;
+
+    //TODO use size threshold to decide when the array of nodes requires upscaling
+    private static final float SIZE_THRESHOLD = THRESHOLD_COEFFICIENT * DEFAULT_SIZE;
+
     private int size;
 
     private int occupiedNodesCount = 0;
@@ -35,8 +40,8 @@ public class SimpleHashMap<K, V> {
             System.out.println("!!There is already a value for key " + key + " which corresponds to index " + index);
             node.next = newNode;
         }
-        float percentage = (float)occupiedNodesCount/size;
-        System.out.println("Occupied " + occupiedNodesCount + " out of " + size + " which is " + percentage*100);
+        float percentage = (float) occupiedNodesCount / size;
+        System.out.println("Occupied " + occupiedNodesCount + " out of " + size + " which is " + percentage * 100);
     }
 
     public V get(K key) {
@@ -48,13 +53,14 @@ public class SimpleHashMap<K, V> {
         return key.hashCode() % size;
     }
 
-    public Set<K> getKeySet(){
+    public Set<K> getKeySet() {
         Set<K> keySet = new HashSet<>();
-        for (SimpleHashMapNode<K,V> n : nodes) {
+        for (SimpleHashMapNode<K, V> n : nodes) {
             keySet.add(n.key);
         }
         return keySet;
     }
+
     //TODO implement rehashing
     private void rehashStructure() {
 
