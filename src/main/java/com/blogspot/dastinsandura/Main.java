@@ -3,7 +3,12 @@ package com.blogspot.dastinsandura;
 import com.blogspot.dastinsandura.hashmap.SimpleHashMap;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static java.util.Arrays.stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,16 +20,31 @@ public class Main {
 
 //        printMap(simpleHashMap);
 
-        Set<String> keySet = simpleHashMap.getKeySet();
-        ArrayList<String>a = new ArrayList<>(keySet);
-        System.err.println(a.get(0));
-        System.err.println(a.get(1));
-        System.err.println(a.get(2));
+//        Set<String> keySet = simpleHashMap.getKeySet();
+//        ArrayList<String>a = new ArrayList<>(keySet);
+//        System.err.println(a.get(0));
+//        System.err.println(a.get(1));
+//        System.err.println(a.get(2));
 //        System.out.println(simpleHashMap.get("1"));
 //        System.out.println(simpleHashMap.get("2"));
 //        System.out.println(simpleHashMap.get("3"));
 //
 //        System.out.println(simpleHashMap.get("4"));
+
+        byte b = 127; // range of 256 (2^8)
+        short s;
+        int i;
+        long l = 123;
+        float f = 123.1f;
+        double d = 123.1;
+        boolean bo;
+        char c;
+
+        List<String> la = new ArrayList<String>();
+        Stream data =
+                la.stream().filter(e -> e.isEmpty());
+        data.collect(Collectors.toList());
+        data.collect(Collectors.toList());
 
     }
 
